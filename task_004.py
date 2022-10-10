@@ -1,6 +1,5 @@
 # # Реализуйте RLE алгоритм: реализуйте модуль 
 # # сжатия и восстановления данных.
-
 data = 'aaasserrrrrtttttionsssss'
 
 def archive(data):
