@@ -48,5 +48,3 @@ while game_over == False:
    
 output_board(val)
 print("Победил", win)
-
-===
