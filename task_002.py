@@ -8,57 +8,24 @@
 # все конфеты у своего конкурента?
 # a) Добавьте игру против бота
 # b) Подумайте как наделить бота ""интеллектом""
-candies = 50
-max_number = 11
-def move_1():
-    player_1 = int(input('сколько берет конфет 1 игрок? '))
-    if  0 < player_1 < max_number:
-        candies = candies - player_1
+candies = 2021
+max_number = 28
+def move(candies, player):
+    play = int(input(f'сколько берет конфет {player%2 +1} игрок? '))
+    if 0 < play < max_number+1:
+        candies = candies - play
         if candies > 0:
             print(f'осталось {candies} конфет')
+            player+=1
+            return candies, player
         else: 
-            print('выиграл игрок 1') 
+            print(f'выиграл игрок {player%2 +1}') 
+            return candies, player
     else:
-        print(f'не больше {max_number}')
-        # move_1(x)     
-    
-def move_2():
-    player_2 = int(input('сколько берет конфет 2 игрок? '))
-    if  0 < player_2 < max_number:
-        candies = candies - player_2
-        if candies > 0:
-            print(f'осталось {candies} конфет')
-        else:
-            print('выиграл игрок 2')
-        
-    else:
-        print(f'не больше {max_number}')
-        # move_1(x)       
-
+        return candies, player
+       
+player = 0    
 while candies > 0:
-    player_1 = int(input('сколько берет конфет 1 игрок? '))
-    if  0 < player_1 < max_number:
-        candies = candies - player_1
-        if candies > 0:
-            print(f'осталось {candies} конфет')
-        else: 
-            print('выиграл игрок 1') 
-            break
-    else:
-        print(f'не больше {max_number}')
-    print("++++++++++")   
-    player_2 = int(input('сколько берет конфет 2 игрок? '))
-    if  0 < player_2 < max_number:
-        candies = candies - player_2
-        if candies > 0:
-            print(f'осталось {candies} конфет')
-        else:
-            print('выиграл игрок 2')
-            break
+    candies, player = move(candies, player)
         
-    else:
-        print(f'не больше {max_number}')
-    
-    
-
 

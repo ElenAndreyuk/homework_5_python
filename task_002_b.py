@@ -8,7 +8,7 @@
 # все конфеты у своего конкурента?
 # a) Добавьте игру против бота
 # b) Подумайте как наделить бота ""интеллектом""
-import random
+
 candies = 2021
 max_number = 28
 def move_1(candies):
@@ -19,26 +19,33 @@ def move_1(candies):
             print(f'осталось {candies} конфет')
         else: 
             print('выиграл игрок 1')
-            return 0   
+            return 0 
+            
     else:
         print(f'не больше {max_number}')
     return candies    
     
 def move_bot(candies):
-    player_bot = random.randint(1, max_number)
+    if candies <= max_number:
+        player_bot = candies
+    else:
+        player_bot = candies % (max_number + 1)  
+        if player_bot == 0:
+            player_bot = max_number 
     print(f'bot берет {player_bot} конфет')
     candies -= player_bot
     if candies > 0:
         print(f'осталось {candies} конфет')
     else:
         print('выиграл игрок bot')
-        return  0  
+        return  0
+        
     return candies
 
 while candies > 0:
     candies = move_1(candies)   
     print() 
-    if candies == 0:
+    if candies <1:
         break
     candies = move_bot(candies)
     print()
